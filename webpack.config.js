@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const ESLintPlugin = require("eslint-webpack-plugin");
+// const ESLintPlugin = require("eslint-webpack-plugin");
 
 // process.env.NODE_ENV = "development";
 
@@ -15,6 +15,12 @@ module.exports = {
   // loader
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        // move options to .babelrc
+      },
       {
         // 符合哪些文件
         test: /\.(css|less)$/,
@@ -87,9 +93,9 @@ module.exports = {
     }),
     // compress css
     new OptimizeCssAssetsPlugin(),
-    new ESLintPlugin({
-      fix: true,
-    }),
+    // new ESLintPlugin({
+    //   fix: true,
+    // }),
   ],
   mode: "development",
 

@@ -5,6 +5,11 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/polyfill": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.1.0",
+    "core-js": "^3.6.5",
     "css-loader": "^4.3.0",
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
@@ -46,10 +51,13 @@
       "not op_mini all"
     ]
   },
-  "eslintConfig":{
+  "eslintConfig": {
     "extends": "airbnb-base",
-    "rules":{
-      "quotes": [1,"double"]
+    "rules": {
+      "quotes": [
+        1,
+        "double"
+      ]
     }
   }
 }
