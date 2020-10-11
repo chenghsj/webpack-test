@@ -87,6 +87,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
+      // compress html
+      minify: {
+        // remove whitespace and comments
+        collapseWhitespace: true,
+        removeComments: true,
+      },
     }),
     new MiniCssExtractPlugin({
       filename: "css/built.css",
@@ -97,7 +103,7 @@ module.exports = {
     //   fix: true,
     // }),
   ],
-  mode: "development",
+  // mode: "development",
 
   // devServer: auto compile, launch browser, auto refresh... (live server)
   // no output file
