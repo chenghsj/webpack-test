@@ -1,7 +1,7 @@
 import data from "./data.json";
-import "./index.css";
-import "./index.less";
-import "./iconFonts/flaticon.css";
+import "./styles/index.css";
+import "./styles/index.less";
+import "./assets/iconFonts/flaticon.css";
 
 const add = (x, y) => {
   return x + y;
