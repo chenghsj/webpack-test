@@ -12,6 +12,7 @@
     "less": "^3.12.2",
     "less-loader": "^7.0.1",
     "mini-css-extract-plugin": "^1.0.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
     "postcss-loader": "^4.0.4",
     "postcss-preset-env": "^6.7.0",
     "style-loader": "^2.0.0",
@@ -22,13 +23,14 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "dev": "webpack",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "browserslist":{
+  "browserslist": {
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

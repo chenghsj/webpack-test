@@ -1,8 +1,9 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
-process.env.NODE_ENV = "development";
+// process.env.NODE_ENV = "development";
 
 module.exports = {
   entry: "./src/index.js",
@@ -16,10 +17,10 @@ module.exports = {
       {
         // 符合哪些文件
         test: /\.(css|less)$/,
-        //使用哪些loader
+        //multiple loader using 'use:[]'
         use: [
-          //use loader 執行順序，從右到左 or 從下到上
-          //生成 style tag，將 js 中的樣式插入進行，添加到 head 中
+          //use loader, compile order from right to left (from bottom to top)
+          //inject styleTag to the DOM
           // "style-loader", // 2
           //replace style-loader, extract css from .js file
           {
@@ -46,7 +47,7 @@ module.exports = {
       },
       {
         test: /\.(jpg|png|gif)$/,
-        // 只有一個 loader
+        // just one loader, using "loader" directly
         //download url-loader file-loader
         loader: "url-loader", //compress file, compare to file-loader
         options: {
@@ -76,7 +77,6 @@ module.exports = {
       },
     ],
   },
-  //plugins
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
@@ -84,9 +84,11 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "css/built.css",
     }),
+    //compress css
+    new OptimizeCssAssetsPlugin(),
   ],
-  //mode
-  mode: "development", //開發模式
+  // mode: "development",
+
   //devServer: auto compile, launch browser, auto refresh... (live server)
   //no output file
   devServer: {
