@@ -111,4 +111,10 @@ module.exports = {
     // js -> add if(module.hot){} in imported file
     // restart webpack-dev-server to make it happen
   },
+  devtool: "eval-source-map",
+  // development
+  // inline|eval|cheap...
+  // speed: eval-cheap > eval > inline > cheap ...
+  // production
+  // hidden|nosources...
 };

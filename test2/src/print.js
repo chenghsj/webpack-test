@@ -1,6 +1,6 @@
 const print = () => {
   const content = "hello world";
-  console.log(content);
+  console.log(content)();
 };
 
 export default print;
