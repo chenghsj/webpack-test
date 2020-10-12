@@ -31,9 +31,6 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -58,6 +55,10 @@
         1,
         "double"
       ]
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
     }
   }
 }

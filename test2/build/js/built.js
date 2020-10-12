@@ -86,26 +86,15 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/assets/iconFonts/flaticon.css":
-/*!*******************************************!*\
-  !*** ./src/assets/iconFonts/flaticon.css ***!
-  \*******************************************/
+/***/ "./src/index.css":
+/*!***********************!*\
+  !*** ./src/index.css ***!
+  \***********************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./src/assets/iconFonts/flaticon.css?");
-
-/***/ }),
-
-/***/ "./src/data.json":
-/*!***********************!*\
-  !*** ./src/data.json ***!
-  \***********************/
-/*! exports provided: name, age, default */
-/***/ (function(module) {
-
-eval("module.exports = JSON.parse(\"{\\\"name\\\":\\\"jack\\\",\\\"age\\\":\\\"18\\\"}\");\n\n//# sourceURL=webpack:///./src/data.json?");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./src/index.css?");
 
 /***/ }),
 
@@ -117,31 +106,7 @@ eval("module.exports = JSON.parse(\"{\\\"name\\\":\\\"jack\\\",\\\"age\\\":\\\"1
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data.json */ \"./src/data.json\");\nvar _data_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./data.json */ \"./src/data.json\", 1);\n/* harmony import */ var _styles_index_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.css */ \"./src/styles/index.css\");\n/* harmony import */ var _styles_index_less__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/index.less */ \"./src/styles/index.less\");\n/* harmony import */ var _assets_iconFonts_flaticon_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/iconFonts/flaticon.css */ \"./src/assets/iconFonts/flaticon.css\");\n/* eslint-disable import/no-extraneous-dependencies */\n\n/* eslint-disable no-console */\n\n\n\n // import \"@babel/polyfill\"; // import all solutions, too many, using core-js\n\nvar add = function add(x, y) {\n  return x + y;\n};\n\nconsole.log(add(1, 2));\nconsole.log(_data_json__WEBPACK_IMPORTED_MODULE_0__);\n\n//# sourceURL=webpack:///./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/styles/index.css":
-/*!******************************!*\
-  !*** ./src/styles/index.css ***!
-  \******************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./src/styles/index.css?");
-
-/***/ }),
-
-/***/ "./src/styles/index.less":
-/*!*******************************!*\
-  !*** ./src/styles/index.less ***!
-  \*******************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./src/styles/index.less?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
