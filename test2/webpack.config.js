@@ -33,55 +33,60 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [...commonCssLoader],
-      },
-      {
-        test: /\.less$/,
-        use: [...commonCssLoader, "less-loader"],
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
-        options: {
-          presets: [
-            [
-              "@babel/preset-env",
-              {
-                useBuiltIns: "usage",
-                corejs: 3.6,
-                targets: {
-                  chrome: "60",
-                  firefox: "50",
-                },
-              },
-            ],
-          ],
-        },
-      },
-      {
-        test: /\.(jpg|png|gif)$/,
-        loader: "url-loader",
-        options: {
-          limit: 8 * 1024,
-          name: "[name].[ext]",
-          outputPath: "imgs",
-        },
-      },
-      {
-        test: /\.html$/,
-        loader: "html-loader",
-        options: {
-          esModule: true,
-        },
-      },
-      {
-        exclude: /\.(js|css|less|html|jpg|png|gif)/,
-        loader: "file-loader",
-        options: {
-          outputPath: "media",
-        },
+        // only the first matching Rule is used when the Rule matches.
+        oneOf: [
+          {
+            test: /\.css$/,
+            use: [...commonCssLoader],
+          },
+          {
+            test: /\.less$/,
+            use: [...commonCssLoader, "less-loader"],
+          },
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: "babel-loader",
+            options: {
+              presets: [
+                [
+                  "@babel/preset-env",
+                  {
+                    useBuiltIns: "usage",
+                    corejs: 3.6,
+                    targets: {
+                      chrome: "60",
+                      firefox: "50",
+                    },
+                  },
+                ],
+              ],
+            },
+          },
+          {
+            test: /\.(jpg|png|gif)$/,
+            loader: "url-loader",
+            options: {
+              limit: 8 * 1024,
+              name: "[name].[ext]",
+              outputPath: "imgs",
+            },
+          },
+          {
+            test: /\.html$/,
+            loader: "html-loader",
+            options: {
+              esModule: true,
+            },
+          },
+          {
+            exclude: /\.(js|css|less|html|jpg|png|gif)/,
+            loader: "file-loader",
+            options: {
+              outputPath: "media",
+            },
+          },
+        ],
       },
     ],
   },
@@ -111,6 +116,7 @@ module.exports = {
     // js -> add if(module.hot){} in imported file
     // restart webpack-dev-server to make it happen
   },
+  // mapping source code, indicating error code.
   devtool: "eval-source-map",
   // development
   // inline|eval|cheap...
