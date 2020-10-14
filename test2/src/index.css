@@ -4,6 +4,7 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
+  background: pink;
 }
 
 .container {
@@ -14,6 +15,7 @@ body {
   width: 200px;
   height: 100px;
   margin-top: 1rem;
+  border-radius: 4px;
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("./assets/images/react.png");

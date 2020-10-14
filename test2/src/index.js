@@ -4,7 +4,9 @@ import "./assets/iconFonts/flaticon.css";
 
 print();
 
-console.log("this is .js file");
+const sum = (...args) => args.reduce((acc, arg) => acc + arg, 0);
+
+console.log(sum(1, 2, 3, 4, 5));
 
 if (module.hot) {
   module.hot.accept("./print.js", () => {

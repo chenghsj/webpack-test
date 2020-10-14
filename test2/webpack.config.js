@@ -3,31 +3,42 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-process.env.NODE_ENV = "development";
+// process.env.NODE_ENV = "development";
 
-// const commonCssLoader = [
-//   {
-//     loader: MiniCssExtractPlugin.loader,
-//     options: { publicPath: "../" },
-//   },
-//   "css-loader",
-//   {
-//     loader: "postcss-loader",
-//     options: {
-//       postcssOptions: {
-//         plugins: ["postcss-preset-env"],
-//       },
-//     },
-//   },
-// ];
+// tree shaking -> remove unused code -> 1. es6 module, 2. production mode
+// sideEffects: false -> all codes have no sideEffect -> all can be tree shaking
+// may remove css/@babel/polyfill or others
+// solution: sideEffects: ["*.css", "*.less",...]
 
-const commonCssLoader = ["style-loader", "css-loader"];
+const commonCssLoader = [
+  {
+    loader: MiniCssExtractPlugin.loader,
+    options: { publicPath: "../" },
+  },
+  "css-loader",
+  {
+    loader: "postcss-loader",
+    options: {
+      postcssOptions: {
+        plugins: ["postcss-preset-env"],
+      },
+    },
+  },
+];
+
+// const commonCssLoader = ["style-loader", "css-loader"];
 
 module.exports = {
   entry: ["./src/index.js", "./public/index.html"],
   output: {
-    filename: "js/built.js",
+    // hash: if alter entry file, the imported file will also create a new hash,
+    // meaning all the file cache will be updated in the browser
+    // chunkhash: if bundled items are from the same file,
+    // chunkhash will be the same, file cache will also be updated
+    // contenthash: creating hash according to content
+    filename: "js/built.[contenthash:10].js",
     path: resolve(__dirname, "build"),
   },
   module: {
@@ -61,6 +72,7 @@ module.exports = {
                   },
                 ],
               ],
+              cacheDirectory: true,
             },
           },
           {
@@ -92,7 +104,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "css/built.css",
+      filename: "css/built.[contenthash:10].css",
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
@@ -102,8 +114,9 @@ module.exports = {
     new ESLintPlugin({
       fix: true,
     }),
+    new CleanWebpackPlugin(),
   ],
-  mode: "development",
+  mode: "production",
   devServer: {
     contentBase: resolve(__dirname, "build"),
     compress: true,
