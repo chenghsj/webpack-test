@@ -3,7 +3,7 @@
 /******/ 	function webpackJsonpCallback(data) {
 /******/ 		var chunkIds = data[0];
 /******/ 		var moreModules = data[1];
-/******/ 		var executeModules = data[2];
+/******/
 /******/
 /******/ 		// add "moreModules" to the modules object,
 /******/ 		// then flag all "chunkIds" as loaded and fire callback
@@ -26,29 +26,8 @@
 /******/ 			resolves.shift()();
 /******/ 		}
 /******/
-/******/ 		// add entry modules from loaded chunk to deferred list
-/******/ 		deferredModules.push.apply(deferredModules, executeModules || []);
-/******/
-/******/ 		// run deferred modules when all chunks ready
-/******/ 		return checkDeferredModules();
 /******/ 	};
-/******/ 	function checkDeferredModules() {
-/******/ 		var result;
-/******/ 		for(var i = 0; i < deferredModules.length; i++) {
-/******/ 			var deferredModule = deferredModules[i];
-/******/ 			var fulfilled = true;
-/******/ 			for(var j = 1; j < deferredModule.length; j++) {
-/******/ 				var depId = deferredModule[j];
-/******/ 				if(installedChunks[depId] !== 0) fulfilled = false;
-/******/ 			}
-/******/ 			if(fulfilled) {
-/******/ 				deferredModules.splice(i--, 1);
-/******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
-/******/ 			}
-/******/ 		}
 /******/
-/******/ 		return result;
-/******/ 	}
 /******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -60,11 +39,11 @@
 /******/ 		"main": 0
 /******/ 	};
 /******/
-/******/ 	var deferredModules = [];
+/******/
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({"print":"print"}[chunkId]||chunkId) + "." + {"print":"b98fe88549"}[chunkId] + ".js"
+/******/ 		return __webpack_require__.p + "js/" + ({"print":"print"}[chunkId]||chunkId) + "." + {"print":"697a1e39e6"}[chunkId] + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -216,10 +195,8 @@
 /******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
 /******/
-/******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./src/index.js","vendors~main"]);
-/******/ 	// run deferred modules when ready
-/******/ 	return checkDeferredModules();
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -256,7 +233,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.object.to-string */ \"../node_modules/core-js/modules/es.object.to-string.js\");\n/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.promise */ \"../node_modules/core-js/modules/es.promise.js\");\n/* harmony import */ var core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _assets_iconFonts_flaticon_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/iconFonts/flaticon.css */ \"./src/assets/iconFonts/flaticon.css\");\n\n\n\n\n\nvar sum = function sum() {\n  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {\n    args[_key] = arguments[_key];\n  }\n\n  return args.reduce((acc, arg) => acc + arg, 0);\n}; // print();\n\n\n__webpack_require__.e(/*! import() | print */ \"print\").then(__webpack_require__.bind(null, /*! ./print */ \"./src/print.js\")).then(resolve => {\n  console.log(resolve.default());\n  console.log(\"success\");\n}).catch(() => {\n  console.log(\"fail\");\n});\nconsole.log(sum(1, 2, 3, 4, 5));\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _assets_iconFonts_flaticon_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/iconFonts/flaticon.css */ \"./src/assets/iconFonts/flaticon.css\");\n// import print from \"./print\";\n\n\n\n// const sum = (...args) => args.reduce((acc, arg) => acc + arg, 0);\n\n// print();\n\n// import(/* webpackChunkName: 'print' */ \"./print\")\n//   .then((resolve) => {\n//     console.log(resolve.default());\n//     console.log(\"success\");\n//   })\n//   .catch(() => {\n//     console.log(\"fail\");\n//   });\n\n// console.log(sum(1, 2, 3, 4, 5));\n\nconsole.log(\"this is index.js\");\n\ndocument.getElementById(\"btn\").onclick = async () => {\n  try {\n    const { print } = await __webpack_require__.e(/*! import() | print */ \"print\").then(__webpack_require__.bind(null, /*! ./print */ \"./src/print.js\"));\n    console.log(print());\n  } catch (err) {\n    console.log(err);\n  }\n};\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

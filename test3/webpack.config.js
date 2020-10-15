@@ -43,27 +43,27 @@ module.exports = {
         test: /\.less$/,
         use: [...commonCssLoader, "less-loader"],
       },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
-        options: {
-          presets: [
-            [
-              "@babel/preset-env",
-              {
-                useBuiltIns: "usage",
-                corejs: 3.6,
-                targets: {
-                  chrome: "60",
-                  firefox: "50",
-                },
-              },
-            ],
-          ],
-          cacheDirectory: true,
-        },
-      },
+      // {
+      //   test: /\.js$/,
+      //   exclude: /node_modules/,
+      //   loader: "babel-loader",
+      //   options: {
+      //     presets: [
+      //       [
+      //         "@babel/preset-env",
+      //         {
+      //           useBuiltIns: "usage",
+      //           corejs: 3.6,
+      //           targets: {
+      //             chrome: "60",
+      //             firefox: "50",
+      //           },
+      //         },
+      //       ],
+      //     ],
+      //     cacheDirectory: true,
+      //   },
+      // },
       {
         test: /\.(jpg|png|gif)$/,
         loader: "url-loader",

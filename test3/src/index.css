@@ -20,3 +20,7 @@ body {
   background-repeat: no-repeat;
   background-image: url("./assets/images/react.png");
 }
+
+#btn {
+  margin: 2em 0;
+}
