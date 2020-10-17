@@ -32,3 +32,16 @@ document.getElementById("btn").onclick = async () => {
     console.log(err);
   }
 };
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then(() => {
+        console.log("register success");
+      })
+      .catch(() => {
+        console.log("register failed");
+      });
+  });
+}
