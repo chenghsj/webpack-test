@@ -1,4 +1,5 @@
 // import print from "./print";
+// import $ from "jquery";
 import "./index.css";
 import "./assets/iconFonts/flaticon.css";
 
@@ -18,6 +19,7 @@ import "./assets/iconFonts/flaticon.css";
 // console.log(sum(1, 2, 3, 4, 5));
 
 console.log("this is index.js");
+console.log($);
 
 document.getElementById("btn").onclick = async () => {
   try {

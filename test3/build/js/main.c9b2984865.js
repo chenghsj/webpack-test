@@ -3,7 +3,7 @@
 /******/ 	function webpackJsonpCallback(data) {
 /******/ 		var chunkIds = data[0];
 /******/ 		var moreModules = data[1];
-/******/
+/******/ 		var executeModules = data[2];
 /******/
 /******/ 		// add "moreModules" to the modules object,
 /******/ 		// then flag all "chunkIds" as loaded and fire callback
@@ -26,8 +26,29 @@
 /******/ 			resolves.shift()();
 /******/ 		}
 /******/
-/******/ 	};
+/******/ 		// add entry modules from loaded chunk to deferred list
+/******/ 		deferredModules.push.apply(deferredModules, executeModules || []);
 /******/
+/******/ 		// run deferred modules when all chunks ready
+/******/ 		return checkDeferredModules();
+/******/ 	};
+/******/ 	function checkDeferredModules() {
+/******/ 		var result;
+/******/ 		for(var i = 0; i < deferredModules.length; i++) {
+/******/ 			var deferredModule = deferredModules[i];
+/******/ 			var fulfilled = true;
+/******/ 			for(var j = 1; j < deferredModule.length; j++) {
+/******/ 				var depId = deferredModule[j];
+/******/ 				if(installedChunks[depId] !== 0) fulfilled = false;
+/******/ 			}
+/******/ 			if(fulfilled) {
+/******/ 				deferredModules.splice(i--, 1);
+/******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		return result;
+/******/ 	}
 /******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -39,11 +60,11 @@
 /******/ 		"main": 0
 /******/ 	};
 /******/
-/******/
+/******/ 	var deferredModules = [];
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({"print":"print"}[chunkId]||chunkId) + "." + {"print":"697a1e39e6"}[chunkId] + ".js"
+/******/ 		return __webpack_require__.p + "js/" + ({"print":"print"}[chunkId]||chunkId) + "." + {"print":"6ce84ce798"}[chunkId] + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -195,8 +216,10 @@
 /******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
 /******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ 	// add entry module to deferred list
+/******/ 	deferredModules.push(["./src/index.js","vendors~main"]);
+/******/ 	// run deferred modules when ready
+/******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -233,7 +256,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _assets_iconFonts_flaticon_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/iconFonts/flaticon.css */ \"./src/assets/iconFonts/flaticon.css\");\n// import print from \"./print\";\n\n\n\n// const sum = (...args) => args.reduce((acc, arg) => acc + arg, 0);\n\n// print();\n\n// import(/* webpackChunkName: 'print' */ \"./print\")\n//   .then((resolve) => {\n//     console.log(resolve.default());\n//     console.log(\"success\");\n//   })\n//   .catch(() => {\n//     console.log(\"fail\");\n//   });\n\n// console.log(sum(1, 2, 3, 4, 5));\n\nconsole.log(\"this is index.js\");\n\ndocument.getElementById(\"btn\").onclick = async () => {\n  try {\n    const { print } = await __webpack_require__.e(/*! import() | print */ \"print\").then(__webpack_require__.bind(null, /*! ./print */ \"./src/print.js\"));\n    console.log(print());\n  } catch (err) {\n    console.log(err);\n  }\n};\n\nif (\"serviceWorker\" in navigator) {\n  window.addEventListener(\"load\", () => {\n    navigator.serviceWorker\n      .register(\"/service-worker.js\")\n      .then(() => {\n        console.log(\"register success\");\n      })\n      .catch(() => {\n        console.log(\"register failed\");\n      });\n  });\n}\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.object.to-string */ \"../node_modules/core-js/modules/es.object.to-string.js\");\n/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.promise */ \"../node_modules/core-js/modules/es.promise.js\");\n/* harmony import */ var core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! regenerator-runtime/runtime */ \"../node_modules/regenerator-runtime/runtime.js\");\n/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _assets_iconFonts_flaticon_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/iconFonts/flaticon.css */ \"./src/assets/iconFonts/flaticon.css\");\n\n\n\n\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n// import print from \"./print\";\n// import $ from \"jquery\";\n\n // const sum = (...args) => args.reduce((acc, arg) => acc + arg, 0);\n// print();\n// import(/* webpackChunkName: 'print' */ \"./print\")\n//   .then((resolve) => {\n//     console.log(resolve.default());\n//     console.log(\"success\");\n//   })\n//   .catch(() => {\n//     console.log(\"fail\");\n//   });\n// console.log(sum(1, 2, 3, 4, 5));\n\nconsole.log(\"this is index.js\");\nconsole.log($);\ndocument.getElementById(\"btn\").onclick = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {\n  var _yield$import, print;\n\n  return regeneratorRuntime.wrap(function _callee$(_context) {\n    while (1) {\n      switch (_context.prev = _context.next) {\n        case 0:\n          _context.prev = 0;\n          _context.next = 3;\n          return __webpack_require__.e(/*! import() | print */ \"print\").then(__webpack_require__.bind(null, /*! ./print */ \"./src/print.js\"));\n\n        case 3:\n          _yield$import = _context.sent;\n          print = _yield$import.print;\n          console.log(print());\n          _context.next = 11;\n          break;\n\n        case 8:\n          _context.prev = 8;\n          _context.t0 = _context[\"catch\"](0);\n          console.log(_context.t0);\n\n        case 11:\n        case \"end\":\n          return _context.stop();\n      }\n    }\n  }, _callee, null, [[0, 8]]);\n}));\n\nif (\"serviceWorker\" in navigator) {\n  window.addEventListener(\"load\", () => {\n    navigator.serviceWorker.register(\"/service-worker.js\").then(() => {\n      console.log(\"register success\");\n    }).catch(() => {\n      console.log(\"register failed\");\n    });\n  });\n}\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

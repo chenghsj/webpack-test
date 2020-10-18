@@ -104,20 +104,23 @@ define("./service-worker.js",['./workbox-8e833ff1'], function (workbox) { 'use s
    */
 
   workbox.precacheAndRoute([{
-    "url": "css/built.0e61c7dd49.css",
+    "url": "css/built.fc610f6c2e.css",
     "revision": "d4109c8a85c91411c081c7823310af91"
   }, {
     "url": "imgs/react.png",
     "revision": "13c51607b8ad74a580f63c915a7e0e59"
   }, {
     "url": "index.html",
-    "revision": "db67686c639744549a1929da188ccc31"
+    "revision": "ba8e30004bb9121bd532276654489d29"
   }, {
-    "url": "js/main.6db921a96c.js",
-    "revision": "6ff90507b2cf10a90b8f46c2ad9496ca"
+    "url": "js/main.c9b2984865.js",
+    "revision": "f77c7999613e323afd6650f5d241f7a4"
   }, {
-    "url": "js/print.697a1e39e6.js",
-    "revision": "a9f9f50d6b38aaa0ca780516fc6ca3ae"
+    "url": "js/print.6ce84ce798.js",
+    "revision": "e013098efa4a333b4b2646406a28a6df"
+  }, {
+    "url": "js/vendors~main.4132dd4f46.js",
+    "revision": "9f56a7ae3a5445b05862a5e7fd08dbcb"
   }, {
     "url": "media/404906ab5ec6d59e4aea42c0dc558dcd.eot",
     "revision": "b0c6f7e2212af1a9c97438503371cac6"
