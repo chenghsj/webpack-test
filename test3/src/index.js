@@ -1,5 +1,5 @@
 // import print from "./print";
-// import $ from "jquery";
+import $ from "jquery";
 import "./index.css";
 import "./assets/iconFonts/flaticon.css";
 

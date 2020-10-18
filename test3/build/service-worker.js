@@ -104,17 +104,20 @@ define("./service-worker.js",['./workbox-8e833ff1'], function (workbox) { 'use s
    */
 
   workbox.precacheAndRoute([{
-    "url": "css/built.fc610f6c2e.css",
+    "url": "css/built.dcce1812a4.css",
     "revision": "d4109c8a85c91411c081c7823310af91"
   }, {
     "url": "imgs/react.png",
     "revision": "13c51607b8ad74a580f63c915a7e0e59"
   }, {
     "url": "index.html",
-    "revision": "ba8e30004bb9121bd532276654489d29"
+    "revision": "283a35e432db8b957b1ba0b2ba272d43"
   }, {
-    "url": "js/main.c9b2984865.js",
-    "revision": "f77c7999613e323afd6650f5d241f7a4"
+    "url": "jquery.js",
+    "revision": "5e471a2c57ced94104d21471db242579"
+  }, {
+    "url": "js/main.0510f8cce8.js",
+    "revision": "5664fbf7fa1cdb8245af2bbd42b10de6"
   }, {
     "url": "js/print.6ce84ce798.js",
     "revision": "e013098efa4a333b4b2646406a28a6df"

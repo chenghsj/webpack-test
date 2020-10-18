@@ -5,7 +5,9 @@ const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plug
 const ESLintPlugin = require("eslint-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const WorkboxPlugin = require("workbox-webpack-plugin");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+// const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const webpack = require("webpack");
+const AddAssetHtmlPlugin = require("add-asset-html-webpack-plugin");
 
 // const isProduction = process.env.NODE_ENV === "production";
 
@@ -103,6 +105,12 @@ module.exports = {
   },
   plugins: [
     // new BundleAnalyzerPlugin(),
+    new webpack.DllReferencePlugin({
+      manifest: resolve(__dirname, "dll/manifest.json"),
+    }),
+    new AddAssetHtmlPlugin({
+      filepath: resolve(__dirname, "dll/jquery.js"),
+    }),
     new MiniCssExtractPlugin({
       filename: "css/built.[hash:10].css",
     }),
@@ -131,8 +139,9 @@ module.exports = {
     },
   },
   mode: "development",
-  externals: {
-    // ignore npm package
-    jquery: "jQuery",
-  },
+  // externals: {
+  //   // ignore npm package
+  //   // import from CDN
+  //   jquery: "jquery",
+  // },
 };
